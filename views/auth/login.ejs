@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fake Instagram</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/css/style.css' />
+  </head>
+  <body class="auth">
+    <main class="container content-auth">
+        <div id="banner">
+            <img src="/img/banner-login.png" alt="" srcset="">
+        </div>
+        <div class="content">
+            <form class="form-auth card" action="">
+            
+                <div id="logo">
+                    <img src="img/logo.png" alt="">
+                </div>
+                <input type="email" placeholder="Digite seu email">
+                <input type="password" placeholder="Senha">
+                <button type="submit">
+                    Entrar
+                </button>
+                <div class="register card">
+                    <p> Não tem uma conta? <a href="/registro"><b>Cadastre-se</b></a> </p>
+                </div>
+            </form>
+        </div>        
+    </main>
+  </body>
+</html>

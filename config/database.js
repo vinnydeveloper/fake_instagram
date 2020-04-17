@@ -1,9 +1,11 @@
+
 const config = {
-    host: "localhost", 
     username: "root",
     password: "admin",
     database: "fake-instagram",
-    dialect: "mysql"
+    host: "localhost", 
+    dialect: "mysql",
+
     
 } 
 

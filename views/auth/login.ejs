@@ -11,13 +11,16 @@
             <img src="/img/banner-login.png" alt="" srcset="">
         </div>
         <div class="content">
-            <form class="form-auth card" action="">
+            <form class="form-auth card" action="/" method="POST">
             
                 <div id="logo">
                     <img src="img/logo.png" alt="">
                 </div>
-                <input type="email" placeholder="Digite seu email">
-                <input type="password" placeholder="Senha">
+                <% if(msg!=""){%> 
+                <div style="background: rgba(235, 85, 85, 0.863); color: white;height: 20px; border-radius: 4px;"><%= msg %> </div>
+                <%}%> 
+                <input type="email" name="email" placeholder="Digite seu email">
+                <input type="password" name="senha" placeholder="Senha">
                 <button type="submit">
                     Entrar
                 </button>

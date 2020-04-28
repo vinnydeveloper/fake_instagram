@@ -3,13 +3,23 @@ const config = require("../configs/database");
 const bcrypt = require("bcrypt");
 
 const userController = {
-  create: (_req, res) => {
-    return res.render("auth/register");
-  },
+  /* 
+  index,
+  show,
+  create,
+  store,
+  edit,
+  update,
+  destroy
+*/
+
+  create: (_req, res) => res.render("auth/register"),
+
   store: async (req, res) => {
     const { name, username, email, password } = req.body;
     const con = new Sequelize(config);
     const hashPassword = bcrypt.hashSync(password, 10);
+
     const user = await con.query(
       "INSERT INTO users (name, username, email , password, create_at, update_at) values (:name, :username, :email, :password, :create_at, :update_at)",
       {
@@ -29,6 +39,7 @@ const userController = {
         msg: "Erro ao cadastrar um usuario",
       });
     }
+
     return res.redirect("/home");
   },
 };

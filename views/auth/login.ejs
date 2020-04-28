@@ -26,6 +26,10 @@
                     <p> Não tem uma conta? <a href="/registro"><b>Cadastre-se</b></a> </p>
                 </div>
             </form>
+
+            <% if( typeof msg !== 'undefined') {%>
+            <h1><%= msg %></h1>
+            <% } %>
         </div>
     </main>
 </body>

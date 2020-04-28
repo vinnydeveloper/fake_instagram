@@ -11,7 +11,6 @@ router.get("/login", authController.create);
 router.post("/login", authController.store);
 
 router.get("/registro", userController.create);
-
 router.post("/registro", userController.store);
 
 router.get("/home", function (req, res, next) {

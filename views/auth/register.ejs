@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Fake Instagram</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='/css/style.css' />
-  </head>
-  <body>
+</head>
+
+<body>
     <main class="container content-auth">
         <div id="banner">
             <img src="/img/banner-login.png" alt="" srcset="">
@@ -13,15 +15,14 @@
                 Cadastre-se para ver fotos dos seus amigos
             </p>
         </div>
-        <form class="form-auth card" action="">
-            
+        <form class="form-auth card" method="post" action="/registro">
             <div id="logo">
                 <img src="img/logo.png" alt="">
             </div>
-            <input type="email" placeholder="Digite seu email">
-            <input type="text" placeholder="Digite seu nome completo">
-            <input type="text" placeholder="Digite seu nome de usuario">
-            <input type="password" placeholder="Senha">
+            <input type="email" name="email" placeholder="Digite seu email">
+            <input type="text" name="name" placeholder="Digite seu nome completo">
+            <input type="text" name="username" placeholder="Digite seu nome de usuario">
+            <input type="password" name="password" placeholder="Senha">
             <button type="submit">
                 Cadastra-se
             </button>
@@ -29,10 +30,11 @@
                 Ao se cadastrar, você concorda com nossos <b>Termos, Política de Dados e Política de Cookies.</b>
             </p>
             <div class="register card">
-                <p> Tem uma conta? <a href="/"><b>Conecte-se</b></a> </p>
+                <p> Tem uma conta? <a href="/login"><b>Conecte-se</b></a> </p>
             </div>
         </form>
-       
+
     </main>
-  </body>
+</body>
+
 </html>

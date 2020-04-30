@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fake Instagram</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/css/style.css' />
+</head>
+
+<body>
+    <header>
+        <div class="container header">
+            <div id="logo">
+                <img src="/img/logo.png">
+            </div>
+            <div class="busca">
+                <form>
+                    <input type="search" class="search" placeholder="buscar usuarios">
+                </form>
+            </div>
+            <nav>
+                <a href="http://">
+                    <img src="/img/icons/home.svg">
+                </a>
+                <a href="">
+                    <div class="avatar-content">
+                        <img class="avatar" src="/img/avatar-example.png">
+                        <b>nati.carolira</b>
+                    </div>
+                </a>
+            </nav>
+        </div>
+    </header>
+    <main class="container content">
+        <section class="card">
+            <h2>Criar publicação</h2>
+            <p>Faça o upload da foto que deseja postar!</p>
+            <form action="/publicar" method="POST" enctype="multipart/form-data">
+                <label for="photo">Selecione a foto</label>
+                <input type="file" name="photo" id="photo">
+                <button type="submit" class="btn btn-send">Postar</button>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>

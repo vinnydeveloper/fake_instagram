@@ -1,9 +1,20 @@
-const { Publication } = require("./models");
+const { Publication, User } = require("./models");
 
 async function verFeed() {
-  const listaDePublications = await Publication.findAll();
+  const listaDePublications = await Publication.findAll({
+    include: [
+      {
+        model: User,
+        as: "user",
+        required: true,
+      },
+      {
+        mode,
+      },
+    ],
+  });
 
-  console.log(listaDePublications);
+  console.log(listaDePublications[0].user);
 }
 
 async function criarPublicacao() {
@@ -18,4 +29,24 @@ async function criarPublicacao() {
   console.log(newPublication);
 }
 
-criarPublicacao();
+async function verPublicacoes(idUser) {
+  const user = await User.findByPk(idUser, {
+    include: {
+      model: Publication,
+    },
+  });
+
+  const publications = await Publication.findAll({
+    where: {
+      users_id: idUser,
+    },
+    include: {
+      model: User,
+      as: "user",
+    },
+  });
+
+  console.log(publications);
+}
+
+verPublicacoes(1);

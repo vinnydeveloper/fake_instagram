@@ -6,6 +6,9 @@ const multer = require("multer");
 const userController = require("../controllers/userController");
 const authController = require("../controllers/authController");
 const postController = require("../controllers/postController");
+
+const auth = require("../middlewares/auth");
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, path.join("public", "posts"));
@@ -26,11 +29,9 @@ router.post("/login", authController.store);
 router.get("/registro", userController.create);
 router.post("/registro", userController.store);
 
-router.get("/publicar", postController.create);
+router.get("/publicar", auth, postController.create);
 router.post("/publicar", upload.any(), postController.store);
 
-router.get("/home", function (req, res, next) {
-  res.render("index", { title: "Express" });
-});
+router.get("/home", auth, postController.index);
 
 module.exports = router;

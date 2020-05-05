@@ -19,37 +19,42 @@
         </form>
       </div>
       <nav>
-        <a href="http://">
+        <a href="/publicar">
+          <img src="/img/icons/plus.svg" alt="Adicionar Publicação" title="Adicionar Publicação">
+        </a>
+        <a href="/home">
           <img src="/img/icons/home.svg">
         </a>
         <a href="">
           <div class="avatar-content">
             <img class="avatar" src="/img/avatar-example.png">
-            <b>nati.carolira</b>
+            <b><%= user.name %></b>
           </div>
         </a>
       </nav>
     </div>
   </header>
   <main class="container content">
+    <% if (publications) { %>
+    <% publications.forEach(publication => { %>
     <div class="card">
       <div class="card-header">
         <div>
           <img class="avatar" src="/img/avatar-example.png">
-          <b>nati.carolira</b>
+          <b><%= publication.user.name %> </b>
         </div>
         <img src="/img/icons/more-vertical.svg">
       </div>
       <div class="card-img">
-        <img src="/img/publication_example.jpg">
+        <img src="<%= publication.image %>">
       </div>
       <div class="card-body">
         <div class="card-itens">
           <div class="likes">
             <img src="/img/icons/heart.svg">
-            <b>35 likes</b>
+            <b><%= publication.like %> likes</b>
           </div>
-          <b>Postado no dia: 16/04/2020</b>
+          <b>Postado no dia: <%= moment(publication.create_at).format('DD/MM/YYYY') %></b>
         </div>
         <div class="card-comments">
           <p><b>ovinnyoliveira</b> Mano que incrivel</p>
@@ -64,39 +69,8 @@
         <button>Publicar</button>
       </form>
     </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div>
-          <img class="avatar" src="/img/avatar-example.png">
-          <b>nati.carolira</b>
-        </div>
-        <img src="/img/icons/more-vertical.svg">
-      </div>
-      <div class="card-img">
-        <img src="/img/publication_example.jpg">
-      </div>
-      <div class="card-body">
-        <div class="card-itens">
-          <div class="likes">
-            <img src="/img/icons/heart.svg">
-            <b>35 likes</b>
-          </div>
-          <b>Postado no dia: 16/04/2020</b>
-        </div>
-        <div class="card-comments">
-          <p><b>ovinnyoliveira</b> Mano que incrivel</p>
-          <p><b>front.hendy</b>
-            <3 </p>
-              <p><b>verofefo</b> aff.. </p>
-        </div>
-
-      </div>
-      <form class="form-comments" action="">
-        <input type="text" placeholder="Adicione um comentário...">
-        <button>Publicar</button>
-      </form>
-    </div>
+    <% }) %>
+    <% } %>
   </main>
 </body>
 

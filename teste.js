@@ -8,13 +8,10 @@ async function verFeed() {
         as: "user",
         required: true,
       },
-      {
-        mode,
-      },
     ],
   });
 
-  console.log(listaDePublications[0].user);
+  console.log(listaDePublications[0].image);
 }
 
 async function criarPublicacao() {
@@ -49,4 +46,4 @@ async function verPublicacoes(idUser) {
   console.log(publications);
 }
 
-verPublicacoes(1);
+verFeed();

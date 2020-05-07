@@ -1,18 +1,29 @@
-const { Publication, User } = require("../models");
+const { Publication, User, Comment } = require("../models");
 const moment = require("moment");
 const userController = {
   index: async (req, res) => {
     const { user } = req.session;
 
     const publications = await Publication.findAll({
-      include: {
-        model: User,
-        as: "user",
-      },
+      include: [
+        {
+          model: User,
+          as: "user",
+          required: true,
+        },
+        {
+          model: Comment,
+          as: "comments",
+          include: {
+            model: User,
+            as: "user",
+          },
+        },
+      ],
     });
-    // res.locals
 
-    console.log(publications);
+    console.log(publications[0].comments[0]);
+
     return res.render("index", { publications, moment });
   },
   create: (_req, res) => res.render("post"),

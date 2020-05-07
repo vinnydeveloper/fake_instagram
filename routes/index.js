@@ -6,6 +6,7 @@ const multer = require("multer");
 const userController = require("../controllers/userController");
 const authController = require("../controllers/authController");
 const postController = require("../controllers/postController");
+const commentController = require("../controllers/commentController");
 
 const auth = require("../middlewares/auth");
 
@@ -31,6 +32,8 @@ router.post("/registro", userController.store);
 
 router.get("/publicar", auth, postController.create);
 router.post("/publicar", upload.any(), postController.store);
+
+router.post("/comentar", auth, commentController.store);
 
 router.get("/home", auth, postController.index);
 

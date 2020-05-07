@@ -37,7 +37,7 @@
   <main class="container content">
     <% if (publications) { %>
     <% publications.forEach(publication => { %>
-    <div class="card">
+    <div class="card" id="<%= publication.id %>">
       <div class="card-header">
         <div>
           <img class="avatar" src="/img/avatar-example.png">
@@ -57,16 +57,16 @@
           <b>Postado no dia: <%= moment(publication.create_at).format('DD/MM/YYYY') %></b>
         </div>
         <div class="card-comments">
-          <p><b>ovinnyoliveira</b> Mano que incrivel</p>
-          <p><b>front.hendy</b>
-            <3 </p>
-              <p><b>verofefo</b> aff.. </p>
+          <% publication.comments.forEach(comment => { %>
+          <p><b><%=comment.user.username%></b> <%=comment.description %>l</p>
+          <% }) %>
         </div>
 
       </div>
-      <form class="form-comments" action="">
-        <input type="text" placeholder="Adicione um comentário...">
-        <button>Publicar</button>
+      <form class="form-comments" action="/comentar" method="post">
+        <input type="text" hidden name="postId" value="<%=publication.id%>">
+        <input type="text" placeholder="Adicione um comentário..." name="description">
+        <button type="submit">Publicar</button>
       </form>
     </div>
     <% }) %>

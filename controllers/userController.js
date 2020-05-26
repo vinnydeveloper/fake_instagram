@@ -3,16 +3,6 @@ const config = require("../configs/database");
 const bcrypt = require("bcrypt");
 
 const userController = {
-  /* 
-  index,
-  show,
-  create,
-  store,
-  edit,
-  update,
-  destroy
-*/
-
   create: (_req, res) => res.render("auth/register"),
 
   store: async (req, res) => {

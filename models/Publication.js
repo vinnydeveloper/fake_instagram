@@ -7,22 +7,26 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      image: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+      image: DataTypes.STRING,
       like: DataTypes.INTEGER,
+      users_id: DataTypes.INTEGER,
       create_at: DataTypes.DATE,
       update_at: DataTypes.DATE,
-      users_id: {
-        allowNull: false,
-        type: DataTypes.INTEGER,
-      },
     },
     {
       timestamps: false,
     }
   );
+
+  Publication.associate = (models) => {
+    Publication.belongsTo(models.User, {
+      foreignKey: "users_id",
+    });
+
+    Publication.hasMany(models.Comment, {
+      foreignKey: "publications_id",
+    });
+  };
 
   return Publication;
 };

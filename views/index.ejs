@@ -35,14 +35,6 @@
     </div>
   </header>
   <main class="container content">
-<<<<<<< HEAD
-    <% publications.forEach(publication => { %>
-    <div class="card">
-      <div class="card-header">
-        <div>
-          <img class="avatar" src="/img/avatar-example.png">
-          <b><%= publication.User.name %></b>
-=======
     <% if (publications) { %>
     <% publications.forEach(publication => { %>
     <div class="card" id="<%= publication.id %>">
@@ -50,59 +42,35 @@
         <div>
           <img class="avatar" src="/img/avatar-example.png">
           <b><%= publication.user.name %> </b>
->>>>>>> 6745c4f52d9ebc9007b9c7b8454885b13ca464f6
         </div>
         <img src="/img/icons/more-vertical.svg">
       </div>
       <div class="card-img">
-<<<<<<< HEAD
-        <img src="/posts/<%= publication.image %>">
-=======
         <img src="<%= publication.image %>">
->>>>>>> 6745c4f52d9ebc9007b9c7b8454885b13ca464f6
       </div>
       <div class="card-body">
         <div class="card-itens">
           <div class="likes">
-<<<<<<< HEAD
-            <a href="/publicacao/<%= publication.id %>/like"><img src="/img/icons/heart.svg"></a>
-=======
             <img src="/img/icons/heart.svg">
->>>>>>> 6745c4f52d9ebc9007b9c7b8454885b13ca464f6
             <b><%= publication.like %> likes</b>
           </div>
           <b>Postado no dia: <%= moment(publication.create_at).format('DD/MM/YYYY') %></b>
         </div>
         <div class="card-comments">
-<<<<<<< HEAD
-          <% publication.Comments.forEach( comment => { %>
-          <p><b><%= comment.User.username %></b> <%= comment.description %></p>
-=======
           <% publication.comments.forEach(comment => { %>
           <p><b><%=comment.user.username%></b> <%=comment.description %>l</p>
->>>>>>> 6745c4f52d9ebc9007b9c7b8454885b13ca464f6
           <% }) %>
         </div>
 
       </div>
-<<<<<<< HEAD
-      <form class="form-comments" method="POST" action="/comentar/<%= publication.id %>">
-        <input type="text" name="idPost" hidden value="<%= publication.id %>">
-        <input type="text" name="description" placeholder="Adicione um comentário...">
-=======
       <form class="form-comments" action="/comentar" method="post">
         <input type="text" hidden name="postId" value="<%=publication.id%>">
         <input type="text" placeholder="Adicione um comentário..." name="description">
->>>>>>> 6745c4f52d9ebc9007b9c7b8454885b13ca464f6
         <button type="submit">Publicar</button>
       </form>
     </div>
     <% }) %>
-<<<<<<< HEAD
-
-=======
     <% } %>
->>>>>>> 6745c4f52d9ebc9007b9c7b8454885b13ca464f6
   </main>
 </body>
 

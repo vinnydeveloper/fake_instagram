@@ -18,8 +18,8 @@ const postController = {
         },
       ],
     });
-
-    return res.render("index", { publications, moment });
+    return res.status(400).json(publications);
+    // return res.render("index", { publications, moment });
   },
   create: (_req, res) => res.render("post"),
 
